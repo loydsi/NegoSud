@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="titre">
+  <h1>Mon Panier</h1>
+</div>
+<div class="row content">
+  <div class="col-12" *ngFor="let item of items; let i = index ">
+    <div class="row" id="{{ item.id}}">
+      <div class="col-6">
+        <figure>
+          <img src="{{item.image}}" alt="">
+        </figure>
+        <div class="name">               
+          {{ item.name }}<!--<small>{{ item.unitPrice | currency:"EUR" }}</small>-->
+        </div>
+      </div>
+      <div class="col-2 p-0 quantity">
+          <input
+          [(ngModel)]="item.qtyTotal"
+          [ngModelOptions]="{standalone: true}"
+          min="1"
+          type="number"
+          value="1"
+          name=""
+          class="form-control"
+          (change)="changeSubtotal(item ,i)"
+          />
+      </div>
+      <div class="col-2 pr-0">
+          <div #subTotalWrap>{{ item.unitPrice | currency:"EUR" }} TTC</div>
+      </div>
+      <div class="col-1 pl-0">
+          <button class="btn btn-secondary" (click)="removeFromCart(item)">x</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <hr/>
+    <div>            
+      Total:<span class="font-weight-bold ">{{total | currency:"EUR" }} TTC</span><hr>
+      <button class="btn btn-primary" (click)="clearCart(items)">Tout supprimer</button>
+      <button class="btn btn-primary" [routerLink]="['/connexion']">Valider mon panier</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

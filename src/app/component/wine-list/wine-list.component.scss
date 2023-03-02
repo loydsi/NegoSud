@@ -1,0 +1,52 @@
+label {
+    color: white;
+    padding-left: 10px;
+}
+.search {
+    margin-bottom: 25px;
+    padding-left: 70%;
+}
+h1 {
+    color: #ba9143;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+input {
+    text-align: center;
+    margin: 10px;
+}
+.main {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-left: auto;
+    padding-right: auto;
+    margin-left: 10%;
+}
+
+.card {
+    margin-bottom: 15px;
+}
+
+.btn {
+    margin-right: 10px;
+}
+
+
+/*a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#ba9143;
+}*/
+
+@media screen and (max-width: 480px) {
+    /* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
+    .search {
+        padding-left: 15%;
+    }
+}

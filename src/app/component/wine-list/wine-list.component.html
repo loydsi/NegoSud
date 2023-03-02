@@ -1,0 +1,23 @@
+<app-header></app-header>
+<h1>Nos vins</h1>
+<div class="search">
+  <label>
+    Recherche : <input type="text" [(ngModel)]="term">
+  </label>
+</div>  
+<div class="main">
+
+    <div class="card" style="width: 18rem;" *ngFor="let item of items |filter:term">
+      <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.name}}</h5>
+        <p class="card-text">{{item.year}}</p>
+        <p class="card-text">{{item.domainName}}</p>
+        <p class="card-text">{{item.family}}</p>
+        <p class="card-text">{{item.unitPrice/1.2 | currency: 'EUR' : 'symbol' : '1.2-2'}} HT</p>
+        <a [routerLink]="['/wine-detail', item.id]" class="btn btn-primary">Détails</a>
+        <a [routerLink]="['/panier']" class="btn btn-primary" (click)="addToCart(item)">Ajouter au panier</a>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
